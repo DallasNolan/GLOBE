@@ -370,51 +370,6 @@
       margin-top: 0;
     }
 
-    .portal-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-      background: var(--bg-card-hover);
-      border-color: var(--border-subtle);
-    }
-
-    .portal-card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .portal-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: var(--bg-canvas);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      flex-shrink: 0;
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: var(--radius-pill);
-      letter-spacing: -0.01em;
-    }
-
-    .status-pill.live {
-      background: var(--accent-blue-soft);
-      color: var(--accent-blue);
-    }
-
-    .portal-card-body {
-      margin-top: 36px;
-    }
-
     .portal-title {
       font-size: clamp(26px, 3vw, 34px);
       font-weight: 700;
@@ -565,6 +520,115 @@
       -webkit-backdrop-filter: blur(10px);
       padding: 4px 12px;
       border-radius: var(--radius-pill);
+    }
+
+    /* Research Hypothesis Card (AI Datacenters) */
+    .hypothesis-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 24px 26px 26px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hypothesis-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .hypothesis-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--ink-primary);
+    }
+
+    .hypothesis-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .hypothesis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .hypothesis-item {
+      background: var(--bg-canvas);
+      border-radius: 16px;
+      padding: 20px 22px;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hypothesis-item-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hypothesis-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hypothesis-icon.water {
+      background: var(--accent-blue-soft);
+      color: var(--accent-blue);
+    }
+
+    .hypothesis-icon.air {
+      background: var(--accent-green-soft);
+      color: #1D7A38;
+    }
+
+    .hypothesis-item-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink-primary);
+    }
+
+    .hypothesis-item-text {
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: var(--ink-secondary);
+      font-weight: 500;
+    }
+
+    /* Subtle Source Attribution Text */
+    .source-note {
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--ink-tertiary);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .source-note-block {
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--ink-tertiary);
+      margin: -12px 0 22px 4px;
+      font-weight: 500;
     }
 
     /* Visual Perspective Strip (NASA PACE Top-Down vs GLOBE Ground-Up) */
@@ -1634,6 +1698,12 @@
       .section-hero-banner {
         height: 175px;
       }
+      .hypothesis-card {
+        padding: 20px 18px;
+      }
+      .hypothesis-grid {
+        grid-template-columns: 1fr;
+      }
       .pace-perspective-grid {
         grid-template-columns: 1fr;
       }
@@ -1798,6 +1868,42 @@
         </div>
       </div>
 
+      <!-- Research Hypothesis Card -->
+      <div class="hypothesis-card" aria-label="Research Hypothesis">
+        <div class="hypothesis-head">
+          <h2 class="hypothesis-title">Hypothesis</h2>
+          <span class="hypothesis-badge">Research Focus</span>
+        </div>
+        <div class="hypothesis-grid">
+          <!-- Water Hypothesis -->
+          <div class="hypothesis-item">
+            <div class="hypothesis-item-head">
+              <span class="hypothesis-icon water" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                </svg>
+              </span>
+              <h3 class="hypothesis-item-title">Water</h3>
+            </div>
+            <p class="hypothesis-item-text">An increase in AI data center wastewater discharge can result in higher levels of water pollution in local rivers and streams.</p>
+          </div>
+
+          <!-- Air Hypothesis -->
+          <div class="hypothesis-item">
+            <div class="hypothesis-item-head">
+              <span class="hypothesis-icon air" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+                </svg>
+              </span>
+              <h3 class="hypothesis-item-title">Air</h3>
+            </div>
+            <p class="hypothesis-item-text">Increased expansion of AI data centers can lead to a large decline in regional air quality.</p>
+          </div>
+        </div>
+        <p class="source-note">Source: UTTUA GLOBE Research Team · AI Datacenter Environmental Impact Hypothesis (2026)</p>
+      </div>
+
       <!-- Dual Segmented Pill Filters -->
       <div class="dc-controls-stack" id="tourDcFilters">
         <div class="dc-control-row">
@@ -1843,6 +1949,7 @@
           <span class="kpi-value amber" id="dcKpiGrid">0 MW</span>
         </div>
       </div>
+      <p class="source-note-block">Source: Texas Water Development Board (TWDB), ERCOT Large Flexible Load Interconnection Reports, &amp; Operator Sustainability Disclosures (2024–2026)</p>
 
       <!-- Side-by-Side Comparison Cards: Open-Loop vs. Closed-Loop -->
       <div class="dc-compare-grid">
@@ -1908,6 +2015,7 @@
           </div>
         </div>
       </div>
+      <p class="source-note-block">Source: U.S. DOE FEMP Water Use Benchmarks, Operator Environmental Reports (Google, Meta, Microsoft, Crusoe), &amp; TCEQ Water Filings</p>
 
       <div class="dc-charts-stack">
         <!-- GRAPHIC 1: Side-by-Side Inline SVG Architecture Diagram -->
@@ -2030,6 +2138,7 @@
               <text x="470" y="236" font-size="11" font-weight="600" fill="#86868B">WUE 0.00–0.02 gal/kWh · Zero Ongoing Draw</text>
             </svg>
           </div>
+          <p class="source-note">Source: U.S. Department of Energy (DOE) Cooling Efficiency Guidelines &amp; ASHRAE TC 9.9 Datacenter Thermal Guidelines</p>
         </div>
 
         <!-- GRAPHIC 2: Before vs. After Environmental Impact Grouped Bar Chart -->
@@ -2054,6 +2163,7 @@
           <div class="svg-wrap">
             <svg id="dcBeforeAfterSvg" viewBox="0 0 860 360" style="width:100%; height:auto; display:block;" role="img" aria-label="Before vs. After Environmental Impact Grouped Bar Chart"></svg>
           </div>
+          <p class="source-note">Source: TWDB Aquifer Stress Assessments, ERCOT Grid Load Filings, NOAA Surface Urban Heat Island Baselines, &amp; Municipal Water Permits (2022–2026)</p>
         </div>
 
         <!-- GRAPHIC 3: Texas Campuses Direct Water Use Horizontal Bar Chart -->
@@ -2078,6 +2188,7 @@
           <div class="svg-wrap">
             <svg id="dcWaterRankSvg" viewBox="0 0 860 828" style="width:100%; height:auto; display:block;" role="img" aria-label="Texas Campuses Direct Water Use Horizontal Bar Chart"></svg>
           </div>
+          <p class="source-note">Source: TCEQ Water Use Permits, County Economic Development Filings, &amp; Hyperscale Operator Disclosures (Google, Meta, Microsoft, Vantage, QTS, Equinix, Digital Realty)</p>
         </div>
       </div>
 
@@ -2115,6 +2226,7 @@
               <tbody id="dcRecordsTbody"></tbody>
             </table>
           </div>
+          <p class="source-note">Source: Compiled from ERCOT Queue Filings, TWDB / TCEQ Permits, &amp; Public Operator Reports (22 Texas Campuses, Updated 11/19/2026)</p>
         </div>
       </div>
     </section>
@@ -2187,6 +2299,7 @@
         <!-- 3 Clickable Year Cards (2024, 2025, 2026) -->
         <div class="year-grid" id="yearCardsGrid"></div>
       </div>
+      <p class="source-note-block">Source: GLOBE Program Public API (api.globe.gov), GLOBE Advanced Data Access Tool (ADAT), &amp; NASA Ocean Biology DAAC (OB.DAAC) PACE Archive (Apr 2024 – Nov 19, 2026)</p>
 
       <!-- Visual Perspective Cards: Top-Down Satellite vs. Ground-Up Observer -->
       <div class="pace-perspective-grid">
@@ -2240,6 +2353,7 @@
           <div class="svg-wrap">
             <svg id="scatterSvg" viewBox="0 0 540 360" style="width:100%; height:auto; display:block;" role="img" aria-label="Cloud Cover Correlation Scatter Plot"></svg>
           </div>
+          <p class="source-note">Source: GLOBE Observer Ground Cloud Matchups (datasearch.globe.gov) paired with NASA PACE OCI Level-2 Cloud Granules (PACE_OCI_L2_CLOUD) &amp; SeaBASS Validation Archive</p>
         </div>
 
         <!-- Visualization 2: Accuracy by Year -->
@@ -2260,6 +2374,7 @@
           <div class="svg-wrap">
             <svg id="trendSvg" viewBox="0 0 540 330" style="width:100%; height:auto; display:block;" role="img" aria-label="Accuracy by Year 2024 to 2026"></svg>
           </div>
+          <p class="source-note">Source: NASA PACE Mission Calibration Releases (OB.DAAC V3, Feb 2025) &amp; GLOBE–PACE Satellite Match Archive (2024–2026)</p>
         </div>
       </div>
 
@@ -2270,6 +2385,7 @@
           <button class="cond-reset-btn active" id="condAllPill">All</button>
         </div>
         <div class="cond-list" id="conditionsList"></div>
+        <p class="source-note">Source: GLOBE Atmosphere Clouds Protocol, 2026 GLOBE PACE Clouds Challenge (Sep 15 – Nov 1, 2026), &amp; Ongoing Greater Tyler / Global Overpasses</p>
       </div>
 
       <!-- Collapsed Matchup Records Drawer -->
@@ -2312,6 +2428,7 @@
               <button class="pill-btn" id="nextPageBtn">Next</button>
             </div>
           </div>
+          <p class="source-note">Source: GLOBE Visualization System (vis.globe.gov), GLOBE ADAT (datasearch.globe.gov), &amp; NASA SeaBASS Validation Viewer (seabass.gsfc.nasa.gov/validation)</p>
         </div>
       </div>
 
